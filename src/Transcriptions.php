@@ -142,6 +142,15 @@ class Transcriptions
             ];
         }
 
+        if (isset($params['timestamp_granularities']) && is_array($params['timestamp_granularities'])) {
+            foreach ($params['timestamp_granularities'] as $granularity) {
+                $multipart[] = [
+                    'name' => 'timestamp_granularities[]',
+                    'contents' => $granularity
+                ];
+            }
+        }
+
         return $multipart;
     }
 
